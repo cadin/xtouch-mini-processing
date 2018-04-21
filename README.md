@@ -1,5 +1,5 @@
 # xtouch-mini-processing
-A Processing interface for the Behringer X-Touch Mini USB Controller
+A Processing interface for the Behringer X-Touch Mini USB Controller.
 
 This project makes it easy to interface with the X-Touch Mini in Processing. It's a thin wrapper around The MidiBus MIDI library that simplifies addressing and controlling the knobs and buttons on the X-Touch Mini.
 
@@ -84,10 +84,4 @@ cd [xtouch-mini-processing]
 
 ## License
 
-This project is licensed under the Unlicense - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+This project is licensed under the Unlicense - see the [LICENSE.md](LICENSE.md) file for details.
