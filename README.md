@@ -16,13 +16,13 @@ You will need three things to make this project work:
 
 ### Installing
 
-**Install The MidiBus Library**
+**Install The MidiBus Library**  
 Install The MidiBus library in Processing via the Contribution Manager:
 In the Processing IDE, choose `Sketch > Import Library... > Add Library...`
 Find The MidiBus and click `Install`.
 
 
-**Copy the XTouch Classes to Your Project**
+**Copy the XTouch Classes to Your Project**  
 Copy the `XTouch.pde` from the `dist` folder into the folder for your Processing sketch.
 
 
@@ -57,9 +57,9 @@ void buttonDidChange(XTButton button, boolean value) {
 }
 ```
 
-Knob ids are 1–8 for Layer A, and 9–16 for Layer B.
-Button ids are 1–16 for Layer A, and 17–32 for Layer B.
-There is only a single Fader shared across both layers.
+Knob ids are 1–8 for Layer A, and 9–16 for Layer B.  
+Button ids are 1–16 for Layer A, and 17–32 for Layer B.  
+There is only a single Fader shared across both layers.  
 
 Set values on the controller like so:
 ```
