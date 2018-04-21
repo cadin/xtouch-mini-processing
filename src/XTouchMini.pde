@@ -37,7 +37,6 @@ public class XTouchMini {
 	XTFader fader;
 
 	XTouchMini() {
-		println("build test");
 		MidiBus.list();
 		midiBus = new MidiBus(this, 0, 1);
 
