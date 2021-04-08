@@ -98,7 +98,7 @@ public class XTouchMini {
 		return fader;
 	}
 
-	void setRangeForFader(int min, int max) {
+	void setRangeForFader(float min, float max) {
 		fader.setRange(min, max);
 	}
 
@@ -107,11 +107,11 @@ public class XTouchMini {
 		return _knobs[id-1];
 	}
 
-	void setRangeForKnob(int min, int max, int knobID) {
+	void setRangeForKnob(float min, float max, int knobID) {
 		setRangeForKnob(min, max, getKnob(knobID));
 	}
 
-	void setRangeForKnob(int min, int max, XTKnob knob) {
+	void setRangeForKnob(float min, float max, XTKnob knob) {
 		knob.setRange(min, max);
 	}
 
@@ -123,12 +123,12 @@ public class XTouchMini {
 		return knob.value;
 	}
 
-	void setValueForKnob(int value, int knobID) {
+	void setValueForKnob(float value, int knobID) {
 		XTKnob k = getKnob(knobID);
 		setValueForKnob(value, k);
 	}
 
-	void setValueForKnob(int value, XTKnob knob) {
+	void setValueForKnob(float value, XTKnob knob) {
 		int val = knob.getRawValue(value);
 		midiBus.sendControllerChange(CHANNEL, knob.number, val);
 		knob.setValue(value);
