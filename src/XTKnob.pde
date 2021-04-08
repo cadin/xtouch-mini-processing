@@ -6,6 +6,11 @@ class XTKnob {
 	float rangeMin = 0, rangeMax = 127;
 	int number = 0;
 
+	float roundingMultiplier = 1;
+	int roundingDecimals = 0;
+	boolean roundValues = false; 
+
+
 	XTKnob(int id, float value, float rangeMin, float rangeMax) {
 		this.id = id;
 		this.rangeMin = rangeMin;
@@ -17,6 +22,20 @@ class XTKnob {
 	XTKnob(int id, int number) {
 		this.id = id;
 		this.number = number;
+	}
+
+	void setRoundingConstraints(float multiplier, int decimals) {
+		roundingMultiplier = multiplier;
+		roundingDecimals = decimals;
+		roundValues = true;
+	}
+
+	void setRoundingConstraints(int multiplier) {
+		this.setRoundingConstraints(multiplier, 0);
+	}
+
+	void clearRoundingConstraints() {
+		roundValues = false;
 	}
 
 	void setRange(float min, float max) {
@@ -38,6 +57,9 @@ class XTKnob {
 		float oldValue = value;
 		rawValue = val;
 		value = map(val, 0, 127, rangeMin, rangeMax);
+		if(roundValues){
+			value = Utils.roundToInterval(value, roundingMultiplier, roundingDecimals);
+		}
 
 		knobDidChange(this, oldValue, this.value);
 	}

@@ -19,6 +19,7 @@ void setup() {
 	
 	// Knob 3 controls circle size (10-100)
 	xTouch.setRangeForKnob(10, 100, 3);
+	xTouch.setRoundingConstraintsForKnob(10, 3); // change values in increments of 10
 	
 	// Fader will control background color (0-255)
 	xTouch.setRangeForFader(0, 255);

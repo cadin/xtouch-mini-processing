@@ -134,6 +134,33 @@ public class XTouchMini {
 		knob.setValue(value);
 	}
 
+	void setRoundingConstraintsForKnob(float multiplier, int decimals, int knobID) {
+		XTKnob k = getKnob(knobID);
+		setRoundingConstraintsForKnob(multiplier, decimals, k);
+	}
+
+	void setRoundingConstraintsForKnob(float multiplier, int decimals, XTKnob knob) {
+		knob.setRoundingConstraints(multiplier, decimals);
+	}
+
+	void setRoundingConstraintsForKnob(int multiplier, int knobID) {
+		XTKnob k = getKnob(knobID);
+		setRoundingConstraintsForKnob(multiplier, k);
+	}
+
+	void setRoundingConstraintsForKnob(int multiplier, XTKnob knob) {
+		knob.setRoundingConstraints(multiplier, 0);
+	}
+
+	void clearRoundingConstraintsForKnob(int knobID){
+		XTKnob k = getKnob(knobID);
+		clearRoundingConstraintsForKnob(k);
+	}
+
+	void clearRoundingConstraintsForKnob(XTKnob knob){
+		knob.clearRoundingConstraints();
+	}
+
 	void resetKnob(int knobID){
 		XTKnob k = getKnob(knobID);
 		resetKnob(k);

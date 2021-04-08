@@ -4,6 +4,10 @@ class XTFader {
 	float value = 0;
 	float rangeMin = 0, rangeMax = 127;
 
+	float roundingMultiplier = 1;
+	int roundingDecimals = 0;
+	boolean roundValues = false;
+
 	XTFader() {}
 
 	void setRange(float min, float max) {
@@ -11,6 +15,20 @@ class XTFader {
 		rangeMax = max;
 
 		setRawValue(rawValue);
+	}
+
+	void setRoundingConstraints(float multiplier, int decimals) {
+		roundingMultiplier = multiplier;
+		roundingDecimals = decimals;
+		roundValues = true;
+	}
+
+	void setRoundingConstraints(int multiplier) {
+		this.setRoundingConstraints(multiplier, 0);
+	}
+
+	void clearRoundingConstraints() {
+		roundValues = false;
 	}
 
 	int getRawValue() {
@@ -25,6 +43,10 @@ class XTFader {
 		float oldValue = value;
 		rawValue = val;
 		value = map(val, 0, 127, rangeMin, rangeMax);
+
+		if(roundValues){
+			value = Utils.roundToInterval(value, roundingMultiplier, roundingDecimals);
+		}
 
 		faderDidChange(oldValue, this.value);
 	}
